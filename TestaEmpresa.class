@@ -1,0 +1,29 @@
+package br.tk.mailton.java.exercicios;
+
+import javax.swing.JOptionPane;
+
+public class TestaEmpresa {
+
+	public static void main(String[] args) {
+		int x;
+		int numeroFuncionarios;
+		int funcionariosContratados;
+		String nomeFuncionario;
+		double salario;
+		Empresa empresa = new Empresa();
+		empresa.setNome(JOptionPane.showInputDialog(null,"Insira o nome da Empresa"));
+		empresa.setCnpj(JOptionPane.showInputDialog(null,"Insira o CNPJ"));
+		numeroFuncionarios = Integer.parseInt(JOptionPane.showInputDialog(null,"Quantos Funcionarios a empresa vai ter?"));
+		empresa.setEmpregados(new Funcionario[numeroFuncionarios]);//Tem que criar primeiro a array porque ela nao referencia nada ainda.
+		empresa.setMaxFuncionarios(numeroFuncionarios);
+		funcionariosContratados=Integer.parseInt(JOptionPane.showInputDialog(null,"Quantos Funcionarios contratados no momento?"));
+		for(x=0;x<funcionariosContratados;x++){
+			nomeFuncionario=JOptionPane.showInputDialog(null,"Insira o nome do "+ (x+1) + " funcionario");
+			salario=Double.parseDouble(JOptionPane.showInputDialog(null,"Insira o salario do " + (x+1) + " Funcionario"));
+			Funcionario f = new Funcionario(nomeFuncionario,salario);
+			empresa.adiciona(f);
+		}
+		empresa.mostraEmpresa();
+		empresa.mostraFuncionario();
+	}
+}
