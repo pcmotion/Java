@@ -1,0 +1,73 @@
+/*
+ * Todo Atributo comentado é porque não esta sendo usado, então e melhor deixar comentado.
+ */
+
+package br.tk.mailton.java.exercicios;
+
+import javax.swing.JOptionPane;
+
+public class Empresa {
+	protected String nome;
+	protected String cnpj;
+	protected Funcionario [] empregados;
+	protected static int funcionariosContratados=0;
+	protected static int maxFuncionarios=0;
+	protected int indiceMostra=0;
+	protected static int idFuncionario=0;
+	public void adiciona(Funcionario f){
+		this.empregados[funcionariosContratados]=f;
+		this.empregados[funcionariosContratados].idFuncionario=idFuncionario+1;
+		idFuncionario++;
+		funcionariosContratados++;
+	}
+
+	public void mostraEmpresa(){
+		JOptionPane.showMessageDialog(null, "Nome Empresa - "+nome+"\n"+"CNPJ - "+cnpj);
+	}
+
+	public void mostraFuncionario(){
+		for(indiceMostra=0;indiceMostra<funcionariosContratados;indiceMostra++){
+			JOptionPane.showMessageDialog(null,"ID - "+empregados[indiceMostra].getIdFuncionario()+"\n"+"Nome - "+empregados[indiceMostra].nome+"\n"+"Salario - "+empregados[indiceMostra].salario, "Funcionarios" , 2);//O ultimo parametro significa a mudança no tipo da mensagem e logicamente o tipo de icone exibido na tela.
+		}
+	}
+
+//	public String getNome() {
+//		return nome;
+//	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+//	public String getCnpj() {
+//		return cnpj;
+//	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+
+//	public Funcionario[] getEmpregados() {
+//		return empregados;
+//	}
+
+	public void setEmpregados(Funcionario[] empregados) {
+		this.empregados = empregados;
+	}	
+
+//	public int getFuncionariosContratados() {
+//		return funcionariosContratados;
+//	}
+
+//	public void setFuncionariosContratados(int funcionariosContratados) {
+//		this.funcionariosContratados = funcionariosContratados;
+//	}
+
+//	public int getMaxFuncionarios() {
+//		return maxFuncionarios;
+//	}
+
+	public void setMaxFuncionarios(int maxFuncionarios) {
+		Empresa.maxFuncionarios = maxFuncionarios;
+	}
+}
