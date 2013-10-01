@@ -1,0 +1,224 @@
+package br.tk.mailton.java.exercicios;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.Vector;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+
+public class Desafio {
+
+	static String caminho = "/home/mm/Documentos/dados.txt";
+	static FileReader arquivo;
+	static BufferedReader leitor;
+	
+	
+	public static void main(String[] args) throws IOException {
+		
+		//Vector List
+		
+				try{
+					List<String> lista = new Vector<>();
+					int numeroLinhas=0;
+					int numeroLinhasEncontradas=0;
+					double milisegundosTotalInicio = System.currentTimeMillis();
+					double milisegundosInicioCarregamento = System.currentTimeMillis();
+					arquivo = new FileReader(caminho);
+					leitor = new BufferedReader(arquivo);
+					String linha = leitor.readLine();
+					while(linha!=null){
+						String s = linha;
+						StringTokenizer tokens = new StringTokenizer(s,":");
+						while (tokens.hasMoreTokens()){
+							String item = tokens.nextToken();
+							lista.add(item);
+						}
+						linha = leitor.readLine();
+						numeroLinhas++;
+					}
+					double milisegundosFinalCarregamento = System.currentTimeMillis();
+					double milisegundosInicioPesquisa = System.currentTimeMillis();
+					for(int indice=0;indice<lista.size();indice++){
+						numeroLinhasEncontradas++;
+//						System.out.println(lista.get(indice));
+					}
+					double milisegundosFinalPesquisa = System.currentTimeMillis();
+					System.out.println("Nome da Coleção Utilizada : VectorList");
+					System.out.println("Número de Linhas Carregadas : " + numeroLinhas);
+					double tempoCarregamento = (milisegundosFinalCarregamento-milisegundosInicioCarregamento);
+					double tempoPesquisa = milisegundosFinalPesquisa-milisegundosInicioPesquisa;
+					System.out.println("Tempo de Carregamento dos Dados : "+ (int) tempoCarregamento + " milisegundos");
+					System.out.println("Número de Linhas Encontradas : " + numeroLinhasEncontradas);
+					System.out.println("Tempo de Pesquisa dos Dados : "+  (int)tempoPesquisa + " milisegundos");
+					double milisegundosTotalFinal = System.currentTimeMillis();
+					double tempoTotal = milisegundosTotalFinal-milisegundosTotalInicio;
+					System.out.println("Tempo Total : "+  (int)tempoTotal + " milisegundos");
+					System.out.println("\n");
+				}
+				catch(FileNotFoundException e){
+					JOptionPane.showMessageDialog(null, "Arquivo não encontrado");
+				}
+				finally{
+					leitor.close();
+				}
+		
+		
+		
+		//ARRAY List
+		
+		try{
+			List<String> lista = new ArrayList<>();
+			int numeroLinhas=0;
+			int numeroLinhasEncontradas=0;
+			double milisegundosTotalInicio = System.currentTimeMillis();
+			double milisegundosInicioCarregamento = System.currentTimeMillis();
+			arquivo = new FileReader(caminho);
+			leitor = new BufferedReader(arquivo);
+			String linha = leitor.readLine();
+			while(linha!=null){
+				String s = linha;
+				StringTokenizer tokens = new StringTokenizer(s,":");
+				while (tokens.hasMoreTokens()){
+					String item = tokens.nextToken();
+					lista.add(item);
+				}
+				linha = leitor.readLine();
+				numeroLinhas++;
+			}
+			double milisegundosFinalCarregamento = System.currentTimeMillis();
+			double milisegundosInicioPesquisa = System.currentTimeMillis();
+			for(int indice=0;indice<lista.size();indice++){
+				numeroLinhasEncontradas++;
+//				System.out.println(lista.get(indice));
+			}
+			double milisegundosFinalPesquisa = System.currentTimeMillis();
+			System.out.println("Nome da Coleção Utilizada : ArrayList");
+			System.out.println("Número de Linhas Carregadas : " + numeroLinhas);
+			double tempoCarregamento = (milisegundosFinalCarregamento-milisegundosInicioCarregamento);
+			double tempoPesquisa = milisegundosFinalPesquisa-milisegundosInicioPesquisa;
+			System.out.println("Tempo de Carregamento dos Dados : "+ (int) tempoCarregamento + " milisegundos");
+			System.out.println("Número de Linhas Encontradas : " + numeroLinhasEncontradas);
+			System.out.println("Tempo de Pesquisa dos Dados : "+  (int)tempoPesquisa + " milisegundos");
+			double milisegundosTotalFinal = System.currentTimeMillis();
+			double tempoTotal = milisegundosTotalFinal-milisegundosTotalInicio;
+			System.out.println("Tempo Total : "+  (int)tempoTotal + " milisegundos");
+			System.out.println("\n");
+		}
+		catch(FileNotFoundException e){
+			JOptionPane.showMessageDialog(null, "Arquivo não encontrado");
+		}
+		finally{
+			leitor.close();
+		}
+		
+		
+		// Hash set List
+		
+		try{
+			Set<String> lista = new HashSet<>();
+			int numeroLinhas=0;
+			int numeroLinhasEncontradas=0;
+			double milisegundosTotalInicio = System.currentTimeMillis();
+			double milisegundosInicioCarregamento = System.currentTimeMillis();
+			arquivo = new FileReader(caminho);
+			leitor = new BufferedReader(arquivo);
+			String linha = leitor.readLine();
+			while(linha!=null){
+				String s = linha;
+				StringTokenizer tokens = new StringTokenizer(s,":");
+				while (tokens.hasMoreTokens()){
+					String item = tokens.nextToken();
+					lista.add(item);
+				}
+				linha = leitor.readLine();
+				numeroLinhas++;
+			}
+			double milisegundosFinalCarregamento = System.currentTimeMillis();
+			double milisegundosInicioPesquisa = System.currentTimeMillis();
+			for(int indice=0;indice<lista.size();indice++){
+				numeroLinhasEncontradas++;
+//				System.out.println(lista.get(indice));
+			}
+			double milisegundosFinalPesquisa = System.currentTimeMillis();
+			System.out.println("Nome da Coleção Utilizada : Hash Set");
+			System.out.println("Número de Linhas Carregadas : " + numeroLinhas);
+			double tempoCarregamento = (milisegundosFinalCarregamento-milisegundosInicioCarregamento);
+			double tempoPesquisa = milisegundosFinalPesquisa-milisegundosInicioPesquisa;
+			System.out.println("Tempo de Carregamento dos Dados : "+ (int) tempoCarregamento + " milisegundos");
+			System.out.println("Número de Linhas Encontradas : " + numeroLinhasEncontradas);
+			System.out.println("Tempo de Pesquisa dos Dados : "+  (int)tempoPesquisa + " milisegundos");
+			double milisegundosTotalFinal = System.currentTimeMillis();
+			double tempoTotal = milisegundosTotalFinal-milisegundosTotalInicio;
+			System.out.println("Tempo Total : "+  (int)tempoTotal + " milisegundos");
+			System.out.println("\n");
+		}
+		catch(FileNotFoundException e){
+			JOptionPane.showMessageDialog(null, "Arquivo não encontrado");
+		}
+		finally{
+			leitor.close();
+		}
+		
+		
+		
+		
+		// Hash Map List
+		
+		try{
+			Map<String,String> lista = new HashMap<>();
+			int numeroLinhas=0;
+			int numeroLinhasEncontradas=0;
+			double milisegundosTotalInicio = System.currentTimeMillis();
+			double milisegundosInicioCarregamento = System.currentTimeMillis();
+			arquivo = new FileReader(caminho);
+			leitor = new BufferedReader(arquivo);
+			String linha = leitor.readLine();
+			while(linha!=null){
+				String s = linha;
+				StringTokenizer tokens = new StringTokenizer(s,":");
+				while (tokens.hasMoreTokens()){
+					String chave = tokens.nextToken();
+					String valor = tokens.nextToken();
+					lista.put(chave, valor);
+				}
+				linha = leitor.readLine();
+				numeroLinhas++;
+			}
+			double milisegundosFinalCarregamento = System.currentTimeMillis();
+			double milisegundosInicioPesquisa = System.currentTimeMillis();
+			for(int indice=0;indice<lista.size();indice++){
+				numeroLinhasEncontradas++;
+//						System.out.println(lista.values());
+			}
+			double milisegundosFinalPesquisa = System.currentTimeMillis();
+			System.out.println("Nome da Coleção Utilizada : Hash Map");
+			System.out.println("Número de Linhas Carregadas : " + numeroLinhas);
+			double tempoCarregamento = (milisegundosFinalCarregamento-milisegundosInicioCarregamento);
+			double tempoPesquisa = milisegundosFinalPesquisa-milisegundosInicioPesquisa;
+			System.out.println("Tempo de Carregamento dos Dados : "+ (int) tempoCarregamento + " milisegundos");
+			System.out.println("Número de Linhas Encontradas : " + numeroLinhasEncontradas);
+			System.out.println("Tempo de Pesquisa dos Dados : "+  (int)tempoPesquisa + " milisegundos");
+			double milisegundosTotalFinal = System.currentTimeMillis();
+			double tempoTotal = milisegundosTotalFinal-milisegundosTotalInicio;
+			System.out.println("Tempo Total : "+  (int)tempoTotal + " milisegundos");
+			System.out.println("\n");
+		}
+		catch(FileNotFoundException e){
+			JOptionPane.showMessageDialog(null, "Arquivo não encontrado");
+		}
+		finally{
+			leitor.close();
+		}
+	}
+
+}
